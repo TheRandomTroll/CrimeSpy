@@ -6,3 +6,7 @@
 
 # Models
 models/
+
+# io
+output/
+input/
