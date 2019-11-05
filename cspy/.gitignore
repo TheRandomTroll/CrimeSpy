@@ -1,0 +1,12 @@
+# VS Code
+.vscode
+
+# Mac OSX
+.DS_Store
+
+# Models
+models/
+
+# io
+output/
+input/

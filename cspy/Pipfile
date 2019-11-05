@@ -1,0 +1,19 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+
+[packages]
+keras = "==2.2.0"
+keras-applications = "==1.0.7"
+tensorflow = "==1.13.1"
+numpy = "==1.14.5"
+matplotlib = "==2.0.2"
+opencv-python = "==3.4.2.16"
+pillow = "*"
+
+[requires]
+python_version = "3.7"
