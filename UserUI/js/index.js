@@ -27,3 +27,4 @@ else if(navigator.getUserMedia) { // Standard
         video.play();
     }, errBack);
 }
+
