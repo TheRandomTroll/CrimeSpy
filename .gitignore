@@ -109,6 +109,7 @@ dmypy.json
 ### Ruby ###
 *.gem
 *.rbc
+*.lock
 /.config
 /coverage/
 /InstalledFiles
