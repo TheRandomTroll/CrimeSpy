@@ -94,6 +94,14 @@ ul ul a {
     padding-left: 30px !important;
 }
 
+.nav-pills > *{
+  color: white;
+}
+
+a.active{
+  background-color: #98a7e3 !important;
+}
+
 /* media query used here */ 
 @media (max-width: 768px) {
     #sidebar {
