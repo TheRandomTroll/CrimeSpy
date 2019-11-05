@@ -6,6 +6,13 @@ from keras.regularizers import l2
 
 import configuration as cfg
 
+__all__ = [
+    'classifier_model',
+    'build_classifier_model',
+    'conv_dict',
+    'load_weights',
+]
+
 
 def classifier_model():
     model = Sequential()
@@ -50,6 +57,7 @@ def load_weights(model, weights_file):
         layer.set_weights(weights)
         i += 1
     return model
+
 
 if __name__ == '__main__':
     model = build_classifier_model()

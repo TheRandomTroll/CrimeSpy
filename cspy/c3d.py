@@ -9,14 +9,22 @@ Based on code from @albertomontesg
 """
 
 import keras.backend as K
-from keras.models import Sequential
-from keras.models import Model
-from keras.layers.core import Dense, Dropout, Flatten
-import configuration as cfg
-from keras.layers.convolutional import Conv3D, MaxPooling3D, ZeroPadding3D
 import numpy as np
-from PIL import Image
+from keras.layers.convolutional import Conv3D, MaxPooling3D, ZeroPadding3D
+from keras.layers.core import Dense, Dropout, Flatten
+from keras.models import Model, Sequential
 from keras.utils.data_utils import get_file
+from PIL import Image
+
+import configuration as cfg
+
+__all__ = [
+    'C3D_MEAN_PATH',
+    'preprocess_input',
+    'C3D',
+    'c3d_feature_extractor',
+]
+
 
 C3D_MEAN_PATH = 'https://github.com/adamcasson/c3d/releases/download/v0.1/c3d_mean.npy'
 

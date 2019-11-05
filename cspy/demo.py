@@ -1,7 +1,12 @@
 import os
+
 from c3d import *
 from classifier import *
 from utils.visualization_util import *
+
+__all__ = [
+    'run_demo',
+]
 
 
 def run_demo():
@@ -21,7 +26,7 @@ def run_demo():
 
     # extract features
     rgb_features = []
-    for i, clip in enumerate(video_clips):
+    for i, clip in enumerate(video_clips, 1):
         clip = np.array(clip)
         if len(clip) < params.frame_count:
             continue
