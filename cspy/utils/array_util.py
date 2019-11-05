@@ -1,5 +1,13 @@
 import numpy as np
 
+__all__ = [
+    'sliding_window',
+    'chunks',
+    'interpolate',
+    'extrapolate',
+    'test_interpolate',
+]
+
 
 def sliding_window(arr, size, stride):
     num_chunks = int((len(arr) - size) / stride) + 2
@@ -62,4 +70,3 @@ def test_interpolate():
     test_case3 = np.random.randn(42, 2048)
     output_case3 = interpolate(test_case3, 32)
     assert output_case3.shape == (32, 2048)
-

@@ -1,7 +1,12 @@
 import os
 
+import numpy as np
+
+import configuration as cfg
+import parameters as params
 from c3d import *
 from classifier import *
+from utils.video_util import *
 from utils.visualization_util import *
 
 __all__ = [
