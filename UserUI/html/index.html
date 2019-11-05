@@ -16,34 +16,39 @@
     <div class="wrapper">
     <!-- Sidebar -->
         <nav id="sidebar">
-            <div class="sidebar-header">
+        	<div class="sidebar-header">
                 <h3>Bootstrap Sidebar</h3>
             </div>
 
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="#">Top anomalies</a>
-                </li>
-                <li>
-                    <a href="#">All cameras</a>
-                </li>
-                <li>
-                    <a href="#">Anomaly alert</a>
-                </li>
-                <li>
-                    <a href="#">History</a>
-                </li>
-            </ul>
+        	<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+		      	<a class="nav-link active" id="v-pills-top-anomalies-tab" data-toggle="pill" href="#v-pills-top-anomalies" role="tab" aria-controls="v-pills-top-anomalies" aria-selected="true">Top anomalies</a>
+		      	<a class="nav-link" id="v-pills-all-cameras-tab" data-toggle="pill" href="#v-pills-all-cameras" role="tab" aria-controls="v-pills-all-cameras" aria-selected="false">All cameras</a>
+		      	<a class="nav-link" id="v-pills-alert-tab" data-toggle="pill" href="#v-pills-alert" role="tab" aria-controls="v-pills-alert" aria-selected="false">Anomaly alert</a>
+		      	<a class="nav-link" id="v-pills-history-tab" data-toggle="pill" href="#v-pills-history" role="tab" aria-controls="v-pills-history" aria-selected="false">History</a>
+		    </div>
         </nav>
 
         <div id="content" class="container">
             <div class="d-flex flex-wrap" id="cameras">
-                <iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
-                <iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
-                <iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
-                <iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
-                <iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
-                <iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
+            	<div class="tab-content" id="v-pills-tabContent">
+			      	<div class="tab-pane fade show active" id="v-pills-top-anomalies" role="tabpanel" aria-labelledby="v-pills-top-anomalies-tab">
+			      		<iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
+			      	</div>
+			      	<div class="tab-pane fade" id="v-pills-all-cameras" role="tabpanel" aria-labelledby="v-pills-all-cameras-tab">
+			      		<iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
+			      		<iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
+			      		<iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
+			      		<iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
+			      		<iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
+			      		<iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
+			      	</div>
+			      	<div class="tab-pane fade" id="v-pills-alert" role="tabpanel" aria-labelledby="v-pills-alert-tab">
+						<iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
+			      	</div>
+			      	<div class="tab-pane fade" id="v-pills-history" role="tabpanel" aria-labelledby="v-pills-history-tab">
+						<iframe src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
+			      	</div>
+			    </div>
             </div>
         </div>
     </div>
