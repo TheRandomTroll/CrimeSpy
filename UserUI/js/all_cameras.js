@@ -1,4 +1,4 @@
-var display = [0, 0.2, 0.4, 0.6, 1, 0.3];
+var display = [0, 0.2, 0.4, 0.6, 1, 0.7];
 
 $(window).on("load", function (){
 	for (let i = 0; i < 6; i++) {
