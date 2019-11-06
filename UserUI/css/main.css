@@ -53,8 +53,8 @@ li > a{
   color: white;
 }
 
-li > a:hover{
-  color: black;
+.nav-link:not(.active):hover {
+  color: black !important;
 }
 
 ul ul a {
@@ -76,8 +76,18 @@ a.active{
 }
 
 #cameras{
-    padding: 5%;
+    padding: 5% 20px;
 }
+
+#videoModal-inner{
+    height: 80vh;
+}
+
+#videoModal-inner > div > iframe{
+    height: 100%;
+}
+
+
 
 /* media query used here */ 
 @media (max-width: 768px) {
