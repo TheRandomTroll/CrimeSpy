@@ -22,14 +22,14 @@ def run_main():
     print()
     print('Number of clips in the video : ', len(video_clips))
     print('Number of frames in the video : ', num_frames)
-    print('='*30)
+    print('='*100)
 
     # build models
     feature_extractor = c3d_feature_extractor()
     classifier_model = build_classifier_model()
     print()
     print('Models initialized')
-    print('='*30)
+    print('='*100)
 
     # extract features
     rgb_features = []
@@ -47,21 +47,29 @@ def run_main():
     rgb_features = np.array(rgb_features)
 
     # bag features
+    print()
     print('Bag features')
+    print('='*100)
     rgb_feature_bag = interpolate(rgb_features, CONFIG.features_per_bag)
 
     # classify using the trained classifier model
+    print()
     print('Classify using the trained classifier model')
+    print('='*100)
     predictions = classifier_model.predict(rgb_feature_bag)
 
     # unbag features
+    print()
     print('Unbag features')
+    print('='*100)
     predictions = np.array(predictions).squeeze()
     predictions = extrapolate(predictions, num_frames)
 
     save_path = os.path.join(CONFIG.output_folder, video_name + '.gif')
     # visualize predictions
+    print()
     print('Visualize predictions')
+    print('='*100)
     visualize_predictions(CONFIG.sample_video_path, predictions, save_path)
 
 
