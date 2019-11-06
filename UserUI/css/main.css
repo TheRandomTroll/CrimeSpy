@@ -87,7 +87,10 @@ a.active{
     height: 100%;
 }
 
-
+iframe{
+    width: 100%;
+    height: 100%;
+}
 
 /* media query used here */ 
 @media (max-width: 768px) {
