@@ -1,29 +1,36 @@
 import os
-from c3d import *
-from classifier import *
-from utils.visualization_util import *
+
+import numpy as np
+
+import CONFIG
+from c3d import c3d_feature_extractor, preprocess_input
+from classifier import build_classifier_model
+from utils.array_util import extrapolate, interpolate
+from utils.video_util import get_video_clips
+from utils.visualization_util import visualize_predictions
+
+__all__ = [
+    'run_main',
+]
 
 
-def run_demo():
-
-    video_name = os.path.basename(cfg.sample_video_path).split('.')[0]
+def run_main():
+    video_name = os.path.basename(CONFIG.sample_video_path).split('.')[0]
 
     # read video
-    video_clips, num_frames = get_video_clips(cfg.sample_video_path)
-
+    video_clips, num_frames = get_video_clips(CONFIG.sample_video_path)
     print("Number of clips in the video : ", len(video_clips))
 
     # build models
     feature_extractor = c3d_feature_extractor()
     classifier_model = build_classifier_model()
-
     print("Models initialized")
 
     # extract features
     rgb_features = []
-    for i, clip in enumerate(video_clips):
+    for i, clip in enumerate(video_clips, 1):
         clip = np.array(clip)
-        if len(clip) < params.frame_count:
+        if len(clip) < CONFIG.frame_count:
             continue
 
         clip = preprocess_input(clip)
@@ -36,7 +43,7 @@ def run_demo():
 
     # bag features
     print('Bag features')
-    rgb_feature_bag = interpolate(rgb_features, params.features_per_bag)
+    rgb_feature_bag = interpolate(rgb_features, CONFIG.features_per_bag)
 
     # classify using the trained classifier model
     print('Classify using the trained classifier model')
@@ -45,11 +52,11 @@ def run_demo():
     predictions = np.array(predictions).squeeze()
     predictions = extrapolate(predictions, num_frames)
 
-    save_path = os.path.join(cfg.output_folder, video_name + '.gif')
+    save_path = os.path.join(CONFIG.output_folder, video_name + '.gif')
     # visualize predictions
     print('Visualize predictions')
-    visualize_predictions(cfg.sample_video_path, predictions, save_path)
+    visualize_predictions(CONFIG.sample_video_path, predictions, save_path)
 
 
 if __name__ == '__main__':
-    run_demo()
+    run_main()

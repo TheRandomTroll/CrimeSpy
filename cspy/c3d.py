@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """C3D model for Keras
 
 # Reference:
@@ -9,14 +8,22 @@ Based on code from @albertomontesg
 """
 
 import keras.backend as K
-from keras.models import Sequential
-from keras.models import Model
-from keras.layers.core import Dense, Dropout, Flatten
-import configuration as cfg
-from keras.layers.convolutional import Conv3D, MaxPooling3D, ZeroPadding3D
 import numpy as np
-from PIL import Image
+from keras.layers.convolutional import Conv3D, MaxPooling3D, ZeroPadding3D
+from keras.layers.core import Dense, Dropout, Flatten
+from keras.models import Model, Sequential
 from keras.utils.data_utils import get_file
+from PIL import Image
+
+import CONFIG
+
+__all__ = [
+    'C3D_MEAN_PATH',
+    'preprocess_input',
+    'C3D',
+    'c3d_feature_extractor',
+]
+
 
 C3D_MEAN_PATH = 'https://github.com/adamcasson/c3d/releases/download/v0.1/c3d_mean.npy'
 
@@ -105,7 +112,7 @@ def C3D(weights='sports1M'):
     model.add(Dense(487, activation='softmax', name='fc8'))
 
     if weights == 'sports1M':
-        model.load_weights(cfg.c3d_model_weights)
+        model.load_weights(CONFIG.c3d_model_weights)
     
     return model
 
@@ -115,3 +122,8 @@ def c3d_feature_extractor():
     layer_name = 'fc6'
     feature_extractor_model = Model(inputs=model.input, outputs=model.get_layer(layer_name).output)
     return feature_extractor_model
+
+
+if __name__ == '__main__':
+    model = C3D()
+    model.summary()

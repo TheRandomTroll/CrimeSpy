@@ -1,11 +1,17 @@
-from utils.array_util import *
-import parameters as params
 import cv2
+
+import CONFIG
+from utils.array_util import sliding_window
+
+__all__ = [
+    'get_video_clips',
+    'get_video_frames',
+]
 
 
 def get_video_clips(video_path):
     frames = get_video_frames(video_path)
-    clips = sliding_window(frames, params.frame_count, params.frame_count)
+    clips = sliding_window(frames, CONFIG.frame_count, CONFIG.frame_count)
     return clips, len(frames)
 
 
