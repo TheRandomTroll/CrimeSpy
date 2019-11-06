@@ -33,3 +33,7 @@
 .circular-btn {
 	border-radius: 100%;
 }
+
+.day-btn{
+	background-color: rgba(255,0,0,0);
+}
