@@ -24,4 +24,7 @@ $(window).on("load", function (){
 			</div>
 		</div>`));
 	}
+
+	$(".toast").toast("show");
+	
 });
