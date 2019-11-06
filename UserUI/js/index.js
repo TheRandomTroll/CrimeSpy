@@ -1,11 +1,21 @@
-var display = [0, 0.2, 0.4, 0.6, 1, 0.3];
+var display = [0, 0.2, 0.4, 0.6, 1, 0.7];
+
+var anomaly = []
+
+for(var i=0; i<display.length;i++){
+
+	if(display[i] >= 0.5)anomaly.push(display[i]);
+}
+
+console.log(anomaly.length);
+
 var iframes = ['<iframe width="922" height="544" src="https://www.youtube.com/embed/Q8szgXXPVgk?rel=0&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
 				'<iframe width="922" height="544" src="https://www.youtube.com/embed/GPcSYIzfBQ0?rel=0&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
 				];
 
 $(window).on("load", function (){
 	for (let i = 0; i < 6; i++) {
-		$("#cameras").append($(`<div class="card" id="card-${i}">
+		$("#cameras").append($(`<div class="card text-white bg-danger" id="card-${i}">
 				${iframes[i%2]}
 				<div class="card-body row">
 					<div class="col-7">
