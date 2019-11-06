@@ -19,12 +19,17 @@ def run_main():
 
     # read video
     video_clips, num_frames = get_video_clips(CONFIG.sample_video_path)
-    print("Number of clips in the video : ", len(video_clips))
+    print()
+    print('Number of clips in the video : ', len(video_clips))
+    print('Number of frames in the video : ', num_frames)
+    print('='*30)
 
     # build models
     feature_extractor = c3d_feature_extractor()
     classifier_model = build_classifier_model()
-    print("Models initialized")
+    print()
+    print('Models initialized')
+    print('='*30)
 
     # extract features
     rgb_features = []
@@ -49,6 +54,8 @@ def run_main():
     print('Classify using the trained classifier model')
     predictions = classifier_model.predict(rgb_feature_bag)
 
+    # unbag features
+    print('Unbag features')
     predictions = np.array(predictions).squeeze()
     predictions = extrapolate(predictions, num_frames)
 

@@ -39,6 +39,7 @@ def preprocess_input(video):
     A numpy array.
 
     """
+
     intervals = np.ceil(np.linspace(0, video.shape[0] - 1, 16)).astype(int)
     frames = video[intervals]
 
@@ -65,17 +66,10 @@ def preprocess_input(video):
 
 
 def C3D(weights='sports1M'):
-    """Instantiates a C3D Kerasl model
-    
-    Keyword arguments:
-    weights -- weights to load into model. (default is sports1M)
-    
-    Returns:
-    A Keras model.
-    
+    """Creates a C3D Keras model
     """
     
-    if weights not in {'sports1M', None}:
+    if weights not in ['sports1M', None]:
         raise ValueError('weights should be either be sports1M or None')
     
     if K.image_data_format() == 'channels_last':
@@ -120,8 +114,8 @@ def C3D(weights='sports1M'):
 def c3d_feature_extractor():
     model = C3D()
     layer_name = 'fc6'
-    feature_extractor_model = Model(inputs=model.input, outputs=model.get_layer(layer_name).output)
-    return feature_extractor_model
+    
+    return Model(inputs=model.input, outputs=model.get_layer(layer_name).output)
 
 
 if __name__ == '__main__':
