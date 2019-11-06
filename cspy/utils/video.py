@@ -1,7 +1,7 @@
 import cv2
 
 import CONFIG
-from utils.array_util import sliding_window
+from utils.array import sliding_window
 
 __all__ = [
     'get_video_clips',

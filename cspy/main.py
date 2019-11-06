@@ -5,9 +5,9 @@ import numpy as np
 import CONFIG
 from c3d import build_c3d_encoder, preprocess_input
 from classifier import build_classifier_model
-from utils.array_util import extrapolate, interpolate
-from utils.video_util import get_video_clips
-from utils.visualization_util import visualize_predictions
+from utils.array import extrapolate, interpolate
+from utils.video import get_video_clips
+from utils.visualization import visualize_predictions
 
 __all__ = [
     'run_main',
