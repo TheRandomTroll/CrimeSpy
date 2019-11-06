@@ -7,7 +7,7 @@
 
 .calendar > button {
 	display: inline;
-	margin-bottom: 5%;
+	/* margin-bottom: 5%; */
 	border-radius: 100%;
 }
 
