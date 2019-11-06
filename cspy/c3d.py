@@ -15,7 +15,7 @@ from keras.models import Model, Sequential
 from keras.utils.data_utils import get_file
 from PIL import Image
 
-import configuration as cfg
+import CONFIG
 
 __all__ = [
     'C3D_MEAN_PATH',
@@ -112,7 +112,7 @@ def C3D(weights='sports1M'):
     model.add(Dense(487, activation='softmax', name='fc8'))
 
     if weights == 'sports1M':
-        model.load_weights(cfg.c3d_model_weights)
+        model.load_weights(CONFIG.c3d_model_weights)
     
     return model
 

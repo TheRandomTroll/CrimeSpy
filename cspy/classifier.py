@@ -4,7 +4,7 @@ from keras import Sequential
 from keras.layers import Dense, Dropout
 from keras.regularizers import l2
 
-import configuration as cfg
+import CONFIG
 
 __all__ = [
     'classifier_model',
@@ -26,7 +26,7 @@ def classifier_model():
 
 def build_classifier_model():
     model = classifier_model()
-    model = load_weights(model, cfg.classifier_model_weigts)
+    model = load_weights(model, CONFIG.classifier_model_weigts)
     return model
 
 
