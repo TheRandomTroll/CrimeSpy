@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """C3D model for Keras
 
 # Reference:
@@ -123,3 +122,8 @@ def c3d_feature_extractor():
     layer_name = 'fc6'
     feature_extractor_model = Model(inputs=model.input, outputs=model.get_layer(layer_name).output)
     return feature_extractor_model
+
+
+if __name__ == '__main__':
+    model = C3D()
+    model.summary()

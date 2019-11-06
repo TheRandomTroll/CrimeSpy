@@ -4,29 +4,27 @@ import numpy as np
 
 import configuration as cfg
 import parameters as params
-from c3d import *
-from classifier import *
-from utils.video_util import *
-from utils.visualization_util import *
+from c3d import c3d_feature_extractor, preprocess_input
+from classifier import build_classifier_model
+from utils.array_util import extrapolate, interpolate
+from utils.video_util import get_video_clips
+from utils.visualization_util import visualize_predictions
 
 __all__ = [
-    'run_demo',
+    'run_main',
 ]
 
 
-def run_demo():
-
+def run_main():
     video_name = os.path.basename(cfg.sample_video_path).split('.')[0]
 
     # read video
     video_clips, num_frames = get_video_clips(cfg.sample_video_path)
-
     print("Number of clips in the video : ", len(video_clips))
 
     # build models
     feature_extractor = c3d_feature_extractor()
     classifier_model = build_classifier_model()
-
     print("Models initialized")
 
     # extract features
@@ -62,4 +60,4 @@ def run_demo():
 
 
 if __name__ == '__main__':
-    run_demo()
+    run_main()
