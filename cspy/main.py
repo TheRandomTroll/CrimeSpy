@@ -3,7 +3,7 @@ import os
 import numpy as np
 
 import CONFIG
-from c3d import c3d_feature_extractor, preprocess_input
+from c3d import build_c3d_encoder, preprocess_input
 from classifier import build_classifier_model
 from utils.array_util import extrapolate, interpolate
 from utils.video_util import get_video_clips
@@ -25,7 +25,7 @@ def run_main():
     print('='*100)
 
     # build models
-    feature_extractor = c3d_feature_extractor()
+    c3d_encoder = build_c3d_encoder()
     classifier_model = build_classifier_model()
     print()
     print('Models initialized')
@@ -39,7 +39,7 @@ def run_main():
             continue
 
         clip = preprocess_input(clip)
-        rgb_feature = feature_extractor.predict(clip)[0]
+        rgb_feature = c3d_encoder.predict(clip)[0]
         rgb_features.append(rgb_feature)
 
         print(f"Processed clip : {i}/{len(video_clips)}")

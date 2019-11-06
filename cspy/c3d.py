@@ -21,7 +21,7 @@ __all__ = [
     'C3D_MEAN_PATH',
     'preprocess_input',
     'C3D',
-    'c3d_feature_extractor',
+    'build_c3d_encoder',
 ]
 
 
@@ -111,10 +111,8 @@ def C3D(weights='sports1M'):
     return model
 
 
-def c3d_feature_extractor():
+def build_c3d_encoder(layer_name='fc6'):
     model = C3D()
-    layer_name = 'fc6'
-    
     return Model(inputs=model.input, outputs=model.get_layer(layer_name).output)
 
 
