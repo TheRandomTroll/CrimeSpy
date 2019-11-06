@@ -1,0 +1,102 @@
+.wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+a, a:hover, a:focus {
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    background: #fff;
+}
+
+li > a{
+  color: white;
+}
+
+li > a:hover{
+  color: black;
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+}
+
+.nav-pills > *{
+  color: white;
+}
+
+a.active{
+  background-color: #98a7e3 !important;
+}
+
+#cameras > *{
+    margin: auto;
+    margin-bottom: 10%;
+}
+
+#cameras{
+    padding: 5%;
+}
+
+/* media query used here */ 
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 300px) {  
+    .box { 
+        flex-basis: 100%; 
+    } 
+} 
+  
+@media only screen and (max-width:500px) { 
+    .box { 
+        flex-basis: 40%; 
+    } 
+}
