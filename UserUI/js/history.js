@@ -18,12 +18,12 @@ $(window).on("load", function () {
 	}
 
 	function displayDays() {
-	    var todayButton = "info";
+	    var todayButton = "primary";
 	    for (let day = 1; day <= days; day++) {
 	        if (day == today.getDate() && month === today.getMonth() && year === today.getFullYear()) {
 	            todayButton = "warning";
 	        }
-	        daysDiv.innerHTML += `<button type="button" class="btn btn-outline-${todayButton} circular-btn" data-toggle="modal" data-target=".bd-example-modal-lg-${day}-${month}-${year}"><div class="day">${day}</div></button>
+	        daysDiv.innerHTML += `<button id="day-${day}" type="button" class="btn btn-outline-${todayButton} circular-btn day-btn" data-toggle="modal" data-target=".bd-example-modal-lg-${day}-${month}-${year}"><div class="day">${day}</div></button>
 
 	                                <div class="modal fade bd-example-modal-lg-${day}-${month}-${year}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	                                    <div class="modal-dialog" role="document">
@@ -92,4 +92,12 @@ $(window).on("load", function () {
 	    daysDiv.innerHTML = "";
 	    displayDays();
 	});
+
+	for (let dayIndex = 1; dayIndex <= today.getDate(); dayIndex++) {
+		setTimeout(function () {
+			var x = Math.floor((Math.random() * 10) + 1);
+			$(`#day-${dayIndex}`).css("background-color", `rgba(255,0,0,${x/10})`);
+			console.log(today.getDay());
+		}, 1000);
+	}
 });
