@@ -24,10 +24,10 @@ def stream_pictures():
         data = LABEL
         while True:
             if not data:
-                i %= 100
+                i %= 199
                 i += 1
                 f.close()
-                sleep(0.5)
+                sleep(0.03)
                 f = open(f"images/test{i}.jpg", 'rb')
                 data = LABEL
             yield data
