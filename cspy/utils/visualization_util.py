@@ -1,13 +1,22 @@
+import cv2
 import matplotlib
-matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.animation import FuncAnimation
-from utils.video_util import *
+
+from utils.video_util import get_video_frames
+
+matplotlib.use('Agg')
+
+__all__ = [
+    'visualize_clip',
+    'visualize_predictions',
+]
 
 
 def visualize_clip(clip, convert_bgr=False, save_gif=False, file_path=None):
     num_frames = len(clip)
-    fig, ax = plt.subplots()
+    fig, _ = plt.subplots()
     fig.set_tight_layout(True)
 
     def update(i):
@@ -32,7 +41,7 @@ def visualize_predictions(video_path, predictions, save_path):
     frames = get_video_frames(video_path)
     assert len(frames) == len(predictions)
 
-    fig, ax = plt.subplots(figsize=(5, 5))
+    fig, _ = plt.subplots(figsize=(5, 5))
     fig.set_tight_layout(True)
 
     fig_frame = plt.subplot(2, 1, 1)
@@ -57,7 +66,3 @@ def visualize_predictions(video_path, predictions, save_path):
         anim.save(save_path, dpi=200, writer='imagemagick')
     else:
         plt.show()
-
-    return
-
-

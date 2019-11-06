@@ -1,5 +1,13 @@
 import numpy as np
 
+__all__ = [
+    'sliding_window',
+    'chunks',
+    'interpolate',
+    'extrapolate',
+    'test_interpolate',
+]
+
 
 def sliding_window(arr, size, stride):
     num_chunks = int((len(arr) - size) / stride) + 2
@@ -7,6 +15,7 @@ def sliding_window(arr, size, stride):
     for i in range(0,  num_chunks * stride, stride):
         if len(arr[i:i + size]) > 0:
             result.append(arr[i:i + size])
+
     return np.array(result)
 
 
@@ -20,6 +29,7 @@ def interpolate(features, features_per_bag):
     interpolated_features = np.zeros((features_per_bag, feature_size))
     interpolation_indicies = np.round(np.linspace(0, len(features) - 1, num=features_per_bag + 1))
     count = 0
+
     for index in range(0, len(interpolation_indicies)-1):
         start = int(interpolation_indicies[index])
         end = int(interpolation_indicies[index + 1])
@@ -45,8 +55,10 @@ def interpolate(features, features_per_bag):
 def extrapolate(outputs, num_frames):
     extrapolated_outputs = []
     extrapolation_indicies = np.round(np.linspace(0, len(outputs) - 1, num=num_frames))
+
     for index in extrapolation_indicies:
         extrapolated_outputs.append(outputs[int(index)])
+
     return np.array(extrapolated_outputs)
 
 
@@ -62,4 +74,3 @@ def test_interpolate():
     test_case3 = np.random.randn(42, 2048)
     output_case3 = interpolate(test_case3, 32)
     assert output_case3.shape == (32, 2048)
-
