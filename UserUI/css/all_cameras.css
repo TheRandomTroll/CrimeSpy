@@ -1,0 +1,11 @@
+.fixed-bottom { 
+  position: fixed;
+  bottom: 5px;
+  left: 2%;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.alert {
+  z-index: 9999 !important;
+}

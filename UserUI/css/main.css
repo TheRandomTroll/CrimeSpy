@@ -110,3 +110,7 @@ a.active{
         flex-basis: 40%; 
     } 
 }
+
+#content {
+    margin-top: 1em;
+}
