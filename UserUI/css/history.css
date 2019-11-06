@@ -1,0 +1,35 @@
+.calendar {
+	text-align: center;
+	padding-top: 20px;
+}
+
+.calendar > button {
+	display: inline;
+	margin-bottom: 5%;
+	border-radius: 100%;
+}
+
+.calendar > p {
+	display: inline;
+	font-size: 80pt;
+}
+
+.day {
+	display: inline-block;
+	font-size: 20pt;
+	width: 40px;
+	height: 40px;
+}
+
+#month-name {
+	font-size: 50pt;
+	width: 50%;
+}
+
+.year {
+	font-size: 40pt;
+}
+
+.circular-btn {
+	border-radius: 100%;
+}
