@@ -39,13 +39,14 @@ def preprocess_input(video):
     A numpy array.
 
     """
+
     intervals = np.ceil(np.linspace(0, video.shape[0] - 1, 16)).astype(int)
     frames = video[intervals]
 
-    # Reshape to 128x171
-    reshape_frames = np.zeros((frames.shape[0], 128, 171, frames.shape[3]))
+    # Reshape to CONFIG{ (frame_height, frame_width) }
+    reshape_frames = np.zeros((frames.shape[0], CONFIG.frame_height, CONFIG.frame_width, frames.shape[3]))
     for i, img in enumerate(frames):
-        img = np.array(Image.fromarray(img).resize((171, 128), Image.BICUBIC))
+        img = np.array(Image.fromarray(img).resize((CONFIG.frame_width, CONFIG.frame_height), Image.BICUBIC))
         reshape_frames[i, :, :, :] = img
 
     mean_path = get_file('c3d_mean.npy',
@@ -65,23 +66,16 @@ def preprocess_input(video):
 
 
 def C3D(weights='sports1M'):
-    """Instantiates a C3D Kerasl model
-    
-    Keyword arguments:
-    weights -- weights to load into model. (default is sports1M)
-    
-    Returns:
-    A Keras model.
-    
+    """Creates a C3D Keras model
     """
     
-    if weights not in {'sports1M', None}:
+    if weights not in ['sports1M', None]:
         raise ValueError('weights should be either be sports1M or None')
     
     if K.image_data_format() == 'channels_last':
-        shape = (16, 112, 112,3)
+        shape = (16, 112, 112, CONFIG.channels)
     else:
-        shape = (3, 16, 112, 112)
+        shape = (CONFIG.channels, 16, 112, 112)
         
     model = Sequential()
     model.add(Conv3D(64, 3, activation='relu', padding='same', name='conv1', input_shape=shape))
@@ -120,8 +114,8 @@ def C3D(weights='sports1M'):
 def c3d_feature_extractor():
     model = C3D()
     layer_name = 'fc6'
-    feature_extractor_model = Model(inputs=model.input, outputs=model.get_layer(layer_name).output)
-    return feature_extractor_model
+    
+    return Model(inputs=model.input, outputs=model.get_layer(layer_name).output)
 
 
 if __name__ == '__main__':
