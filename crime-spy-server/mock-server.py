@@ -15,5 +15,7 @@ if(r.status_code == 200):
             bytes = bytes[b+2:]
             i+=1
             f = open('test{}.jpg'.format(i), 'wb')
+        if i >= 100:
+            i = 1
 else:
     print("Received unexpected status code {}".format(r.status_code))
