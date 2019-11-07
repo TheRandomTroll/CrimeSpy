@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.animation import FuncAnimation
 
-from utils.video_util import get_video_frames
+from utils.video import get_video_frames
 
 matplotlib.use('Agg')
 
