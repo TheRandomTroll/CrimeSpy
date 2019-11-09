@@ -2,8 +2,9 @@ var display = [0, 0.2, 0.4, 0.6, 1, 0.7];
 
 $(window).on("load", function (){
 	for (let i = 0; i < 6; i++) {
-		$("#cameras").append($(`<div class="card text-white ${display[i] < 0.5 ? "bg-success" : "bg-danger"}">
-				<iframe class="card-img-top" src="https://www.youtube.com/embed/lM02vNMRRB0" frameborder="0"></iframe>
+        $("#cameras").append($(`
+            <div class="card text-white ${display[i] < 0.5 ? "bg-success" : "bg-danger"}">
+                <img class="card-img-top" src="http://127.0.0.1:5000/"></img>
 				<div class="card-body row">
 					<div class="col-7">
 						<h4 class="card-title">Camera info</h4>
