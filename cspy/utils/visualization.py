@@ -59,10 +59,9 @@ def visualize_predictions(video_path, predictions, save_path):
 
     # FuncAnimation will call the 'update' function for each frame; here
     # animating over 10 frames, with an interval of 20ms between frames.
-
     anim = FuncAnimation(fig, update, frames=np.arange(0, len(frames), 10), interval=1, repeat=False)
-
     if save_path:
         anim.save(save_path, dpi=200, writer='imagemagick')
     else:
+        # plt.show() will just loop the animation forever.
         plt.show()
